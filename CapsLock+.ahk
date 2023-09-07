@@ -1,6 +1,6 @@
 #SingleInstance force
-
-; If the script is not elevated, relaunch as administrator and kill current instance:
+  
+; If the script is not elevated, relaunch as administrator and kill current instance:  如果脚本没有以管理员权限运行,则重启此脚本以管理员身份运行,并终止当前没有提权运行的进程。
 full_command_line := DllCall("GetCommandLine", "str")
 if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
 {
@@ -25,8 +25,8 @@ SetStoreCapslockMode, Off
 
 global CLversion:="Version: 3.2.0.0 | 2020-10-24`n`nCopyright Junkai Chen" 
 
-global cClipboardAll ;capslock+ clipboard
-global caClipboardAll ;capslock+alt clipboard
+global cClipboardAll ;capslock+ clipboard 当Caps Lock键被按下时,触发与剪贴板相关的操作。
+global caClipboardAll ;capslock+alt clipboard  当用户同时按下 CapsLock 和 Alt 键时,使用 clipboard 变量来读取或修改剪贴板内容。 这可能是定义一个热键（caClipboardAll）组合来进行剪贴板操作的代码。
 global sClipboardAll ;system clipboard
 global whichClipboardNow  ;0 system clipboard; 1 capslock+ clipboard; 2 capslock+alt clipboard
 ;  global clipSaveArr=[]
