@@ -1,4 +1,4 @@
-﻿/*
+/*
 有道翻译
 */
 
@@ -18,7 +18,7 @@ global appKey=""
 
 ; 收费版改版
 ; free key
-if(CLSets.TTranslate.apiType=1)
+if(CLSets.TTranslate.apiType=1) ;如果设置文件中aipType=1 运行下列文件
 {
 	if (CLSets.TTranslate.appPaidID != "" && CLSets.TTranslate.appPaidID != "")
 	{
@@ -27,7 +27,7 @@ if(CLSets.TTranslate.apiType=1)
 	}
 	youdaoApiString=http://openapi.youdao.com/api?signType=v3&from=auto&to=auto&appKey=%appID%
 }
-else
+else  ;如何文件中aipType=0 即使用默认的有道api key
 {
 	if(CLSets.TTranslate.apiKey!="")
 	{
@@ -113,7 +113,7 @@ if(youdaoApiString="")
 }
 
 if (CLSets.TTranslate.apiType=1) {
-	; salt sign curtime
+	; salt sign curtime  这是一个随机密码？
 	; sign=sha256(应用ID+input+salt+curtime+应用密钥)
 	myNow := A_NowUTC
 	myNow -= 19700101000000, Seconds
